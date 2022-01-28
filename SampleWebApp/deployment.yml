@@ -1,0 +1,29 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aksdevopsdemo
+spec:
+  replicas: 1
+  template:
+    metadata:
+      lables:
+        app: aksdevopsdemo-app
+    spec:
+      containers:
+        - name: aksdevopsdemo-services-app
+        image: updatename.azurecr.io/aksdevopsdemo:latest
+        ports:
+          - containerPort: 80
+---
+apiVersion: apps/v1
+kind: Service
+metadata:
+    name: aksdevopsdemo-app
+spec:
+  ports:
+    - name: http-port
+      port: 80
+      targetPort: 80
+  selector:
+    app: aksdevopsdemo-app
+  type: LoadBalancer
