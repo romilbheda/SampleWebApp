@@ -11,9 +11,9 @@ spec:
     spec:
       containers:
         - name: aksdevopsdemo-services-app
-        image: updatename.azurecr.io/aksdevopsdemo:latest
-        ports:
-          - containerPort: 80
+          image: updatename.azurecr.io/aksdevopsdemo:latest
+          ports:
+            - containerPort: 80
 ---
 apiVersion: apps/v1
 kind: Service
